@@ -6,25 +6,39 @@ using System.Threading.Tasks;
 
 namespace Reverse_Order
 {
-    //class Program
-    //{
         public static class Kata
         {
-        
+            
             static void Main()
             {
-                ReversedOrder(12345);
+                int result = ReversedOrder(12345);
+                Console.WriteLine("The number in ReversedOrder is {0}",result);     
+                Console.ReadLine();
             }
 
             public static int ReversedOrder(int num)
-            {
-                if (num <= 10)
-                {
-                    ReversedOrder(num / 10);              
+            {   
+                int ReversedOutput = 0;
+                                   
+                 while(num > 0)
+                {   
+                    //GRABS LAST NUMBER
+                    int IndRevNumber = num % 10;
+
+                    //STORES THE LAST NUMBER
+                    ReversedOutput = (ReversedOutput * 10) + IndRevNumber;
+                    
+                    //REMOVES THE LAST NUMBER FROM INT GIVEN
+                    num = num / 10;
+
+                    Console.WriteLine(IndRevNumber);
+                    Console.WriteLine("Numbers remaining: {0} ",num);
+                    Console.ReadLine();
                 }
-            //Console.WriteLine(num);
-            Console.WriteLine(num % 10);
-            //Console.ReadLine();
+                 //Console.WriteLine(ReversedOutput);
+                 //Console.ReadLine();
+                 return ReversedOutput;
+            
             return 0;
             }
         }
